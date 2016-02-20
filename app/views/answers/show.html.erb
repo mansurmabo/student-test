@@ -1,3 +1,9 @@
+<p>
+  <%= link_to 'Tests', tests_path %> >
+  <%= link_to @test.name.capitalize, test_path(@test) %> >
+  <%= link_to @question.title.capitalize, test_question_path(@test, @question) %> >
+  Question answers
+</p>
 <h3>Question:</h3>
 <b><%= @question.title %></b>
 <hr>

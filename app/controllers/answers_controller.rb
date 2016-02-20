@@ -1,8 +1,9 @@
 class AnswersController < ApplicationController
+
   def new
     @answer = Answer.new
     @question = Question.find(session[:question])
-
+    @test = Test.find(session[:test])
   end
 
   def create
