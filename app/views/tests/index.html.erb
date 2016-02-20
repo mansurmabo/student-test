@@ -1,0 +1,29 @@
+<p>
+  <%= link_to 'New Test', new_test_path, class: 'btn btn-success' %>
+</p>
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Link</th>
+    <th>Questions #</th>
+    <th>Results #</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.name %></td>
+        <td>somelink</td>
+        <td><%= test.questions.size %></td>
+        <td><%= test.results.size %></td>
+        <td>
+          <%= link_to 'View', test_path(test), class: 'label label-info' %>
+          <%= link_to 'Edit', edit_test_path(test), class: 'label label-warning' %>
+          <%= link_to 'Delete', test_path(test), class: 'label label-danger',
+                      method: :delete,
+                      data: {confirm: 'Do you want to remove this test?'} %>
+        </td>
+      </tr>
+  <% end %>
+
+</table>

@@ -1,0 +1,27 @@
+<%= form_for @test do |f| %>
+    <% if @test.errors.any? %>
+            <div class="alert-danger" role="alert">
+              Total errors: <%= @test.errors.count %>
+              <ul>
+                <% @test.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+    <div>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <br>
+    <div>
+      <%= f.submit  class: 'btn btn-primary'%>
+    </div>
+<% end %>
+
