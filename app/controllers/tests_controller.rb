@@ -20,7 +20,7 @@ class TestsController < ApplicationController
   def show
     @test = Test.find(params[:id])
     @questions = Question.where(test_id: @test.id)
-    #session[:test] = params[:id]
+    session[:test] = params[:id]
 
   end
 

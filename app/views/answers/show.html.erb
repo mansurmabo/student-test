@@ -13,12 +13,10 @@
 
   <% @answers.each do |answer| %>
       <tr>
-        <td>
-          <%= link_to answer.title, test_question_answer_path(@test, @question, answer) %>
-        </td>
+        <td><%= answer.title %> </td>
         <% checked = "" %>
         <% checked = "checked" if answer.is_correct == true %>
-        <td><input type="radio" name="answer"  value="" checked = <%= checked %>></td>
+        <td><input type="radio" name="answer" disabled = "disabled"  value="" checked = <%= checked %>></td>
         <td>
           <%= link_to 'Edit', edit_test_question_answer_path(@test, @question, answer), class: 'label label-warning' %>
           <%= link_to 'Delete', test_question_answer_path(@test, @question, answer), class: 'label label-danger',

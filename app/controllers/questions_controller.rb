@@ -1,7 +1,4 @@
 class QuestionsController < ApplicationController
-  def index
-    @questions = Question.all
-  end
 
   def new
     @question = Question.new
@@ -20,13 +17,16 @@ class QuestionsController < ApplicationController
 
   end
   def show
+    @test = Test.find(session[:test])
     @question = Question.find(params[:id])
+    @answers = Answer.where(question_id: @question.id)
 
+    session[:question] = params[:id]
   end
 
   def edit
     @question = Question.find(params[:id])
-
+    @test = Test.find(session[:test])
   end
   def update
     @question = Question.find(params[:id])
