@@ -17,7 +17,9 @@
         <td>
           <%= link_to test.name.capitalize, test_path(test) %>
         </td>
-        <td>somelink</td>
+        <td>
+          <%= link_to 'start_test',  test_run_test_path(test) %>
+        </td>
         <td><%= test.questions.size %></td>
         <td><%= test.results.size %></td>
         <td>

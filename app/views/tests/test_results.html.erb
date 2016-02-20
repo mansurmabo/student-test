@@ -1,0 +1,13 @@
+<h2>Report for <%= @name %></h2>
+<h2>Total <%= @percent %>% (<%= @correct_answers %>/<%= @questions.size %> correct)</h2>
+<h3>Questions:</h3>
+<% @questions.each do |q| %>
+    <p><b><%= q.title %></b></p>
+    <% q.answers.each do |a| %>
+        <div>
+
+          <%= label_tag(a.title) %>
+        </div>
+    <% end %>
+    <hr>
+<% end %>

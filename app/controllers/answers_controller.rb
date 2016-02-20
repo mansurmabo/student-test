@@ -22,7 +22,6 @@ class AnswersController < ApplicationController
     @question = Question.find(session[:question])
     @answer = Answer.find(params[:id])
     @answers = Answer.where(question_id: @question.id)
-
   end
 
   def edit

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+
   resources :tests do
+    get 'run_test' => 'tests#run_test'
+    post 'test_results' => 'tests#test_results'
     resources :questions do
       resources :answers
     end
