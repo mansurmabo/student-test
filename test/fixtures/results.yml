@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: MyString
+  correct: 9.99
+  report: MyString
+
+two:
+  student: MyString
+  correct: 9.99
+  report: MyString
