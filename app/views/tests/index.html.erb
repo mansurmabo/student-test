@@ -12,12 +12,13 @@
 
   <% @tests.each do |test| %>
       <tr>
-        <td><%= test.name %></td>
+        <td>
+          <%= link_to test.name.capitalize, test_path(test) %>
+        </td>
         <td>somelink</td>
         <td><%= test.questions.size %></td>
         <td><%= test.results.size %></td>
         <td>
-          <%= link_to 'View', test_path(test), class: 'label label-info' %>
           <%= link_to 'Edit', edit_test_path(test), class: 'label label-warning' %>
           <%= link_to 'Delete', test_path(test), class: 'label label-danger',
                       method: :delete,

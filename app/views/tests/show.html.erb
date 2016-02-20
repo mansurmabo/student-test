@@ -1,6 +1,31 @@
-<div>
-  <p>Название теста</p>
-  <b><%= @test.name %> </b>
-  <p>Описание</p>
-  <b><%= @test.description %></b>
-</div>
+<h3>Questions for "<%= @test.name.capitalize %>" </h3>
+<p>Описание</p>
+<i><%= @test.description %></i>
+<hr>
+<p>
+  <%= link_to 'New question',  new_test_question_path(@test), class: 'btn btn-success' %>
+</p>
+<table class="table table-hover">
+  <tr>
+    <th>Question</th>
+    <th>Answers</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @questions.each do |question| %>
+      <tr>
+        <td>
+          <%= link_to question.title, test_question_path(@test, question) %>
+        </td>
+        <td><%= question.answers.size %></td>
+        <td>
+          <%= link_to 'Edit', edit_test_question_path(@test, question), class: 'label label-warning' %>
+          <%= link_to 'Delete', test_question_path(@test, question), class: 'label label-danger',
+                      method: :delete,
+                      data: {confirm: 'Do you want to remove this question?'} %>
+        </td>
+      </tr>
+  <% end %>
+
+</table>
+
